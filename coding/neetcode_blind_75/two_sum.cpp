@@ -1,4 +1,4 @@
-// Leetcode problem link -> https://leetcode.com/problems/two-sum/description/
+// Leetcode problem link -> https://leetcode.com/problems/two-sum/
 
 // Solutions -
 
