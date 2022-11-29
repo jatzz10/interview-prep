@@ -3,7 +3,7 @@
 // Solutions -
 
 // 1. brute force - 
-class Solution {
+class Solution1 {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         vector<int> op;
@@ -29,7 +29,7 @@ public:
 
 
 // 2. two pointers -
-class Solution {
+class Solution2 {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         vector<int> op;
@@ -57,7 +57,7 @@ public:
 
 
 // 3. hashmap -
-class Solution {
+class Solution3 {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         vector<int> op;

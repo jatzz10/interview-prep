@@ -3,7 +3,7 @@
 // Solutions -
 
 // 1. Brute Force
-class Solution {
+class Solution1 {
 public:
     bool containsDuplicate(vector<int>& nums) {
         bool haveDuplicate = false;
@@ -26,7 +26,7 @@ public:
 
 
 // 2. Sort
-class Solution {
+class Solution2 {
 public:
     bool containsDuplicate(vector<int>& nums) {
         bool haveDuplicate = false;
@@ -45,7 +45,7 @@ public:
 
 
 // 3. Unordered Set
-class Solution {
+class Solution3 {
 public:
     bool containsDuplicate(vector<int>& nums) {
         unordered_set<int> st(nums.begin(), nums.end());
@@ -57,7 +57,7 @@ public:
 
 
 // 4.  Hash Map
-class Solution {
+class Solution4 {
 public:
     bool containsDuplicate(vector<int>& nums) {
         bool haveDuplicate = false;

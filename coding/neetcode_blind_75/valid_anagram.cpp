@@ -3,7 +3,7 @@
 // Solutions -
 
 // 1. Brute Force
-class Solution {
+class Solution1 {
 public:
     bool isAnagram(string s, string t) {
         bool anagram = true;
@@ -31,7 +31,7 @@ public:
 
 
 // 2. Sort
-class Solution {
+class Solution2 {
 public:
     bool isAnagram(string s, string t) {
         bool anagram = true;
@@ -54,7 +54,7 @@ public:
 
 
 // 3. Hash Map
-class Solution {
+class Solution3 {
 public:
     bool isAnagram(string s, string t) {
         bool anagram = true;
@@ -78,3 +78,4 @@ public:
 // Time complexity - O(n)
 // Space complexity - O(n)
 // Best apprach
+
