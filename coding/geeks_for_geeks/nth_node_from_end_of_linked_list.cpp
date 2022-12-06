@@ -72,5 +72,5 @@ int getNthFromLast3(Node *head, int n) {
 /*
 - Approach 2 uses some auxiliary space (extra space) as compared to other two approaches
 - Approach 3 will be a bit faster than approach 1, since it traverses the list only once
-- Though, it can be argued that approach 3 uses slightly more memory than approch 2, because of additional memory required to store one extra pointer
+- Though approach 3 uses slightly more memory than approch 2, because of additional memory required to store one extra pointer
 */
