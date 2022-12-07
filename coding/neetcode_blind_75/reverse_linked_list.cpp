@@ -1,4 +1,5 @@
 // Leetcode problem link - https://leetcode.com/problems/reverse-linked-list
+// GeeksForGeeks link - https://practice.geeksforgeeks.org/problems/reverse-a-linked-list
 
 // Solutions -
 
