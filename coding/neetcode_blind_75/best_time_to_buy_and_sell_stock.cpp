@@ -28,12 +28,8 @@ public:
     int maxProfit(vector<int>& prices) {
         int profit = 0, minPrice = prices[0];
         for (int i = 1; i < prices.size(); i++) {
-            if (prices[i] < minPrice) {
-                minPrice = prices[i];
-            }
-            if (prices[i]-minPrice > profit) {
-                profit = prices[i]-minPrice;
-            }
+            minPrice = min(prices[i], minPrice);
+            profit = max(prices[i]-minPrice, profit);
         }
         return profit;
     }
