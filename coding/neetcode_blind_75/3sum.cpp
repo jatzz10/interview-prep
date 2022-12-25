@@ -28,29 +28,23 @@ public:
 
 
 // 2. More optimized that 1st approach
+// Sort, HashMap
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         set<vector<int>> st;
-        map<int, int> mp;
+        sort(nums.begin(), nums.end());
         for (int i = 0; i < nums.size(); i++) {
-            mp[nums[i]]++;
-        }
-        for (int i = 0; i < nums.size(); i++) {
-            for (int j = 0; j < nums.size(); j++) {
-                if (i == j) continue;
-                int third_ele = -1 * (nums[i] + nums[j]);
-                if (mp[third_ele]) {
-                    if ((third_ele == nums[i] && mp[nums[i]]-2 < 0) 
-                        || (third_ele == nums[j] && mp[nums[j]]-2 < 0) 
-                        || (third_ele == nums[i] && third_ele == nums[j] && mp[nums[j]]-3 < 0)) {
-                        continue;
-                    }
-
-                    // load the set of numbers
-                    vector<int> temp {nums[i], nums[j], third_ele};
+            if (i > 0 && nums[i] == nums[i-1]) continue;
+            map<int, int> mp;
+            for (int j = i+1; j < nums.size(); j++) {
+                int target_sum = -1 * (nums[i] + nums[j]);
+                if (mp.find(target_sum) != mp.end()) {
+                    vector<int> temp {nums[i], nums[j], target_sum};
                     sort(temp.begin(), temp.end());
                     st.insert(temp);
+                } else {
+                    mp[nums[j]] = j;
                 }
             }
         }
@@ -62,3 +56,35 @@ public:
 // Space Complexity - O(N)
 // Auxiliary space - O(N)
 
+
+// 3. Two pointers
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> vec;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size(); i++) {
+            if (i > 0 && nums[i] == nums[i-1]) continue;
+            int l = i+1, r = nums.size()-1;
+            while (l < r) {
+                int sum = nums[i]+nums[l]+nums[r];
+                if (sum == 0) {
+                    vector<int> temp {nums[i], nums[l], nums[r]};
+                    vec.push_back(temp);
+                    l++;
+                    while (nums[l] == nums[l-1] && l < r) {
+                        l++;
+                    }
+                } else if (sum > 0) {
+                    r--;
+                } else {
+                    l++;
+                }
+            }
+        }
+        return vec;
+    }
+};
+// Time Complexity - O(N^2)
+// Space Complexity - O(N)
+// Auxiliary space - O(1)
