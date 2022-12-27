@@ -2,7 +2,10 @@
 
 // Solutions -
 
-// 1. DFS
+// 1. BFS
+// (similar logic as flood_fill.cpp problem)
+
+// 2. DFS
 class Solution {
 public:
     void dfs(vector<vector<char>>& grid, int i, int j) {
