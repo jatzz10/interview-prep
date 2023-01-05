@@ -16,33 +16,24 @@ class Solution {
   public:
     vector<int> returnAnagramIndices(string mainString, string sub) {
         vector<int> result;
-        map<char, int> freqSub;
+        set<char> freqSub;
 
         for (int i = 0; i < sub.size(); i++) {
-            freqSub[sub[i]]++;
+            freqSub.insert(sub[i]);
         }
 
         for (int i = 0; i < mainString.size()-sub.size()+1; i++) {
-            map<char, int> freq;
+            set<char> freq;
             bool valid = true;
             int count = 0;
 
             for (int j = i; j < mainString.size(); j++) {
                 if (count == sub.size()) break;
-                freq[mainString[j]]++;
+                freq.insert(mainString[j]);
                 count++;
             }
 
-            map<char, int>::iterator itr;
-
-            for (itr = freqSub.begin(); itr != freqSub.end(); itr++) {
-                if (freqSub[itr->first] != freq[itr->first]) {
-                    valid = false;
-                    break;
-                }
-            }
-
-            if (valid == true) {
+            if (freq == freqSub) {
                 result.push_back(i);
             }
         }
