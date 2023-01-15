@@ -1,6 +1,8 @@
 // Leetcode problem link - https://leetcode.com/problems/top-k-frequent-elements/description/
 
 // Solutions -
+
+// Approach 1
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
@@ -32,3 +34,6 @@ public:
         return result;
     }
 };
+
+
+// Approach 2 - How to solve this via Heap [to learn]
