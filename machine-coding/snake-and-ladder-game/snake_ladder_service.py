@@ -6,8 +6,6 @@ from models.dice import Dice
 
 
 class SnakeLadderService:
-
-
     def __init__(self, snakes, ladders, players):
         pass
 
