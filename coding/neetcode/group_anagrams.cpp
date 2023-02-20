@@ -1,4 +1,4 @@
-// Problem - https://leetcode.com/problems/group-anagram
+// Problem - https://leetcode.com/problems/group-anagrams
 
 // Solutions
 
