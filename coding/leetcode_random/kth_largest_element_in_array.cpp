@@ -40,6 +40,8 @@ public:
         return 0;
     }
 };
-// Time complexity - O(n)
+// Time complexity - O(m.logn) where m = no. of distint elements in array
 // Space complexity - O(n)
 // Auxiliary space - O(n)
+// This approach is slightly more optimized that the 1st approach in case 
+// there are many duplicate elements in the array.
