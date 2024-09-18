@@ -3,35 +3,39 @@ using namespace std;
 
 
 vector<int> insertInSortedList(vector<int> nums, int ele) {
-    vector<int> newVector;
-    bool newElementInserted = false;
+    // Base condition
+    if (nums.size() == 0 || nums.back() <= ele) {
+        nums.push_back(ele);
+        return nums;
+    }
+    
+    // Hypothesis
+    int lastElement = nums.back();
+    nums.pop_back();
+    nums = insertInSortedList(nums, ele);
+    
+    // Induction
+    nums.push_back(lastElement);
 
-    for (int i = 0; i < nums.size(); i++) {
-        if (nums[i] > ele && newElementInserted == false) {
-            newVector.push_back(ele);
-            newElementInserted = true;
-        }
-        newVector.push_back(nums[i]);
-    }
-    
-    if (newElementInserted == false) {
-        newVector.push_back(ele);
-    }
-    
-    return newVector;
+    return nums;
 }
 
-
 vector<int> sortYolo(vector<int> nums) {
+    // Base condition
     if (nums.size() == 1) {
         return nums;
     }
-    vector<int> subVector(nums.begin(), nums.end()-1);
-    vector<int> sortedVector = sortYolo(subVector);
-    vector<int> finalVector = insertInSortedList(sortedVector, nums[nums.size()-1]);
-    return finalVector;
+    
+    // Hypothesis
+    int lastElement = nums.back();
+    nums.pop_back();
+    nums = sortYolo(nums);
+    
+    // Induction
+    nums = insertInSortedList(nums, lastElement);
+    
+    return nums;
 }
-
 
 int main() {
     vector<int> nums{4, 2, 7, 8, 5, 3};
@@ -44,4 +48,3 @@ int main() {
 
 // Time Complexity = O(N^2)
 // Space Complexity = O(N)
-
